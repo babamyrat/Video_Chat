@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         mAuth = FirebaseAuth.getInstance();
 
+
         btnLogin.setOnClickListener(view -> {
             Toast.makeText(MainActivity.this, "The button is not ready yet!", Toast.LENGTH_SHORT).show();
         });
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 editTextPass.setError("Please min 6 symbol");
             }
 
-            progressBar.setVisibility(VISIBLE);
+            progressBar.setVisibility(View.VISIBLE);
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -86,12 +87,12 @@ public class MainActivity extends AppCompatActivity {
                       startActivity(new Intent(MainActivity.this, ProfileActivity.class));
                     } else {
                         Toast.makeText(MainActivity.this, "Failed to login!", Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.GONE);
                     }
                 }
             });
         });
     }
-
 
     private void clickText() {
         txtRegister.setOnClickListener(view -> {
