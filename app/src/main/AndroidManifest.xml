@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VideoChat">
         <activity
+            android:name=".UI.ProfileActivity"
+            android:exported="true" />
+        <activity
             android:name=".UI.RegisterActivity"
             android:exported="true" />
         <activity
